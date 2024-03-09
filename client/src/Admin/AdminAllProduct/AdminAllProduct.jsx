@@ -8,7 +8,7 @@ const AdminAllProduct = () => {
   const [data, setData] = useState([]);
   const getData = async () => {
     await axios
-      .get("http://localhost:8000/display")
+      .get("https://watch-store-p4zm.onrender.com/display")
       .then((res) => {
         setData(res.data);
       })
@@ -22,7 +22,7 @@ const AdminAllProduct = () => {
   const mydelete = (id) => {
     alert(id);
     axios
-      .delete(`http://localhost:8000/deleteproduct/${id}`)
+      .delete(`https://watch-store-p4zm.onrender.com/deleteproduct/${id}`)
       .then((response) => {
         console.log(response.data);
         alert(response.data);
@@ -57,7 +57,7 @@ const AdminAllProduct = () => {
                 <td data-column="Quantity">{key.quantity}</td>
                 <td data-column="Value">{key.quantity * key.price}</td>
                 <td data-column="Action">
-                  <FaEye  /> <FaEdit />{" "}
+                  <FaEye /> <FaEdit />{" "}
                   <MdDelete
                     onClick={() => {
                       mydelete(key._id);

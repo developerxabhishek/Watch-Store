@@ -21,7 +21,7 @@ const Register = () => {
 
   function register() {
     axios
-      .post("http://localhost:8000/api/user/create", user)
+      .post("https://watch-store-p4zm.onrender.com/api/user/create", user)
       .then((res) => {
         dispatch(setUserId(res.data._id));
         navigate("/OtpVerification");

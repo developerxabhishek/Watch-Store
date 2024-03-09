@@ -18,7 +18,7 @@ const OtpVerification = () => {
     console.log(otp);
     let data = { userId: userid, otp: otp };
     axios
-      .post("http://localhost:8000/api/user/verify-email", data)
+      .post("https://watch-store-p4zm.onrender.com/api/user/verify-email", data)
       .then((Response) => {
         navigate("/Login");
       })

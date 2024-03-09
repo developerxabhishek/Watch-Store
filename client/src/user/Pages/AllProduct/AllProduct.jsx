@@ -8,7 +8,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Checkbox } from "@mui/material";
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProductDetails } from "../../../Slices/productDetailsSlice";
 import { addtowishlist } from "../../../Slices/WishlistSlice";
 
@@ -16,18 +16,19 @@ const AllProduct = () => {
   const [data, setData] = useState([]);
   const [brandData, setBrandData] = useState([]);
   const ProductDispatch = useDispatch();
-  const wishlistDispatch=useDispatch();
-  
+  const wishlistDispatch = useDispatch();
+
   // Get all brand data from server...
   const getBrand = async () => {
-    axios.get("http://localhost:8000/brandDisplay").then((response) => {
-      
-      setBrandData(response.data);
-    });
+    axios
+      .get("https://watch-store-p4zm.onrender.com/brandDisplay")
+      .then((response) => {
+        setBrandData(response.data);
+      });
   };
   const getData = async () => {
     await axios
-      .get("http://localhost:8000/display")
+      .get("https://watch-store-p4zm.onrender.com/display")
       .then((res) => {
         setData(res.data);
       })
@@ -44,9 +45,11 @@ const AllProduct = () => {
     setAge(event.target.value);
   };
 
-const addwishlist=async(myid,brand,productname,price,image)=>{
- wishlistDispatch(addtowishlist({id:myid,brand,productname,price,image}))
-}
+  const addwishlist = async (myid, brand, productname, price, image) => {
+    wishlistDispatch(
+      addtowishlist({ id: myid, brand, productname, price, image })
+    );
+  };
   return (
     <>
       <div className="all-products">
@@ -70,7 +73,6 @@ const addwishlist=async(myid,brand,productname,price,image)=>{
 
         <div className="all-product-content">
           <div className="all-product-sidebar">
-
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon style={{ fontSize: "25px" }} />}
@@ -216,7 +218,18 @@ const addwishlist=async(myid,brand,productname,price,image)=>{
                   </div>
                 </Link>
                 <div className="all-product-card-bottom">
-                  <CiHeart className="all-product-wislist-icon" onClick={()=>{addwishlist(key._id,key.brand,key.productname,key.discount,key.images[0])}} />
+                  <CiHeart
+                    className="all-product-wislist-icon"
+                    onClick={() => {
+                      addwishlist(
+                        key._id,
+                        key.brand,
+                        key.productname,
+                        key.discount,
+                        key.images[0]
+                      );
+                    }}
+                  />
 
                   <div className="all-product-brandname">{key.brand}</div>
                   <div className="all-product-productname">

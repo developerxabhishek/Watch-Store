@@ -57,7 +57,7 @@ const AdminAddProduct = () => {
     Array.from(image).forEach((item) => {
       formData.append("products", item);
     });
-    const url = "http://localhost:8000/image";
+    const url = "https://watch-store-p4zm.onrender.com/image";
     axios
       .post(url, formData)
       .then((result) => {
@@ -70,7 +70,7 @@ const AdminAddProduct = () => {
   };
 
   const getBrand = async () => {
-    axios.get("http://localhost:8000/brandDisplay").then((response) => {
+    axios.get("https://watch-store-p4zm.onrender.com/brandDisplay").then((response) => {
       console.log(response.data);
       setBrandData(response.data);
     });

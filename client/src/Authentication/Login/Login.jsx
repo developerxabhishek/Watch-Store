@@ -20,7 +20,7 @@ const Login = () => {
 
   const login = () => {
     axios
-      .post("http://localhost:8000/api/user/signin", input)
+      .post("https://watch-store-p4zm.onrender.com/api/user/signin", input)
       .then((Response) => {
         const decodedToken = jwtDecode(Response.data.token);
         console.table(decodedToken);

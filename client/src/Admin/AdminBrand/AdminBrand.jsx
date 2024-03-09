@@ -29,7 +29,7 @@ const AdminBrand = () => {
       let input = { brandName: brandName, brandImage: imgpath };
 
       // console.log(input);
-      await axios.post("http://localhost:8000/brand", input);
+      await axios.post("https://watch-store-p4zm.onrender.com/brand", input);
       setSelectedFile(null);
       setBrand("");
       getBrand();
@@ -39,10 +39,12 @@ const AdminBrand = () => {
   };
 
   const getBrand = async () => {
-    axios.get("http://localhost:8000/brandDisplay").then((response) => {
-      console.log(response.data);
-      setDisplay(response.data);
-    });
+    axios
+      .get("https://watch-store-p4zm.onrender.com/brandDisplay")
+      .then((response) => {
+        console.log(response.data);
+        setDisplay(response.data);
+      });
   };
 
   useEffect(() => {
@@ -52,11 +54,13 @@ const AdminBrand = () => {
 
   const deleteBrand = (id) => {
     // alert(id);
-    axios.delete(`http://localhost:8000/deletebrand/${id}`).then((response) => {
-      // console.log(response.data);
-      // alert(response.data);
-      getBrand();
-    });
+    axios
+      .delete(`https://watch-store-p4zm.onrender.com/deletebrand/${id}`)
+      .then((response) => {
+        // console.log(response.data);
+        // alert(response.data);
+        getBrand();
+      });
   };
   return (
     <>

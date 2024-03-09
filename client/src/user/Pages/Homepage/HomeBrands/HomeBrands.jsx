@@ -25,10 +25,11 @@ const responsive = {
 const HomeBrands = () => {
   const [brandData, setBrandData] = useState([]);
   const getBrand = async () => {
-    axios.get("http://localhost:8000/brandDisplay").then((response) => {
-      
-      setBrandData(response.data);
-    });
+    axios
+      .get("https://watch-store-p4zm.onrender.com/brandDisplay")
+      .then((response) => {
+        setBrandData(response.data);
+      });
   };
   useEffect(() => {
     getBrand();

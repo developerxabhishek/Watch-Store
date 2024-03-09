@@ -30,9 +30,8 @@ const Footer = () => {
       alert("You need to login first");
     } else {
       axios
-        .post("http://localhost:8000/rating", data)
-        .then((response) => {
-        })
+        .post("https://watch-store-p4zm.onrender.com/rating", data)
+        .then((response) => {})
         .catch(console.error());
     }
   };

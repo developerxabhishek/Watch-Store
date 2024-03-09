@@ -1,0 +1,64 @@
+.otp-verification{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.otp-verification-container{
+    margin-top: 10vh;
+    height:30rem;
+    width: 40rem;
+    padding-left: 1rem;
+    box-shadow: 1px 1px 10px 1px black;
+}
+.otp-verification-input{
+    height: 100px;
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10%;
+    margin-top: 2rem;
+    box-shadow: 1px 1px 5px 1px black;
+}
+.otp-verification-input input{
+    height: 35px;
+    width: 35px;
+  text-align: center;
+  outline: none;
+   
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.otp-verification-container h1{
+    text-align: center;
+    margin-top: 1rem;
+}
+.otp-verification-container p{
+    text-align: center;
+    font-size: 1.5rem;
+    color: green;
+    margin-top: 1rem;
+}
+.otp-verification-container h4{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.otp-verification-container button{
+    width: 95%;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    margin-left: 0%;
+    border: none;
+    box-shadow: 1px 1px 5px 1px black;
+    background-color: orange;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}

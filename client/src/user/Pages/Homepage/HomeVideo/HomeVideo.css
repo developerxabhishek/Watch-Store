@@ -1,0 +1,9 @@
+.home-video{
+   height: auto;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+}
+.home-videos{
+object-fit: cover;
+}

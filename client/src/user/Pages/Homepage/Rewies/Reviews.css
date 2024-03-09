@@ -1,0 +1,96 @@
+.reviews-container{
+
+
+    width: 100vw;
+    height: auto;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16vh 0;
+    flex-wrap: wrap;
+  
+}
+.reviews-container-left{
+
+   display: flex;
+   flex-direction: column;
+   padding-left: 4rem;
+   overflow: visible;
+  
+ 
+}
+.reviews-container-left h1{
+    font-size: clamp(1rem, 1rem + 5vw, 5rem);
+  
+}
+.reviews-container-left p{
+    font-size: clamp(.5rem, 1rem + 1vw, 2rem);
+    line-height: 3rem;
+    overflow: visible;
+}
+
+
+.reviews-container-right{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 65%;
+}
+
+
+
+.reviews-container-right .myreviews{
+
+height: 320px;
+
+background-color: #201d1d;
+width: 270px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-right: 100px;
+padding: 2rem;
+text-align: center;
+border-radius: 4px;
+box-shadow: 0 0 4px 1px wheat;
+}
+.reviews-container-right .myreviews h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.reviews-container-right .myreviews p{
+    margin-top: 2.7rem;
+    line-height: 2.2rem;
+    font-size: 1.5rem;
+ }
+@media (max-width:1200px){
+
+    .reviews-container-right{
+        width: 100vw;
+        height: auto;
+        flex-wrap: wrap;
+        overflow: hidden;
+        margin-top: 2rem;
+        align-items: center;
+       height: auto;
+       overflow: hidden;
+        display: block;
+        justify-content: center;
+    }
+    .myreviews{
+        margin-bottom: 2rem;
+        margin-left: 15%;
+        width: 100vw;
+
+    }
+    .reviews-container{
+        height: auto;
+        width: 100vw;
+    }
+    .reviews-container{
+        padding: 5vh 0;
+    }
+} 

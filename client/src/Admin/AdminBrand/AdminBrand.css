@@ -1,0 +1,39 @@
+.admin-brand-container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-family: serif;
+    padding: 2% 10%;
+}
+.admin-brand-container h1{
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+.admin-brand-container h2{
+    font-size: 1.5rem;
+  
+}
+
+.admin-brand-container input{
+    height: 3rem;
+    width: 300px;
+    outline: none;
+    margin-bottom: 1rem;
+}
+.admin-brand-container button{
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    width: 120px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    background-color: orange;
+    box-shadow: 1px 1px 1px 2px black;
+    margin-bottom: 2rem;
+}
+
+@media   (max-width: 600px) {
+    .admin-brand-container{
+        padding: 0 1%;
+    }
+  }

@@ -1,0 +1,52 @@
+.brand-card-container{
+    width: 360px;
+    height: 400px;
+    background-color: pink;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2vw;
+    display: flex;
+}
+.home-brands-carousel-container{
+    height: 90vh;
+    padding-top: .5vw;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 2%;
+    justify-content: space-around;
+    padding-bottom: .5vw;
+}
+
+.home-brands-carousel-container h1{
+
+
+    font-size: clamp(1rem, 1rem + 5vw, 5rem);
+}
+
+
+@media (max-width:730px){
+    .brand-card-container{
+        height: 400px;
+        width: 90vw;
+        margin-left: 5%;
+    }
+    .home-brands-carousel-container{
+        margin: 0;
+        padding: 0%;
+    }
+    .home-brands-carousel-container{
+        height: auto;
+    }
+    .home-brands-carousel-container h1{
+        margin: 2vmax 0%;
+    }
+}
+@media (max-width:450px){
+    .brand-card-container{
+        height: 300px;
+        width: 90vw;
+        margin-left: 5%;
+    }
+}

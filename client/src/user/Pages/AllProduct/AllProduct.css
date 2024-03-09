@@ -1,0 +1,108 @@
+.all-products{
+    height: auto;
+    width:100vw ;
+    padding-top: 10vh;
+}
+.all-product-sidebar{
+    width: 220px;
+    height: 100vh;
+    border-right: 1px solid rgb(219, 216, 216);
+    
+}
+.all-product-sidebar::-webkit-scrollbar{
+    display: none !important;
+}
+.accordian-summary{
+    font-size: 20px;
+    height: 10vh;
+    border-bottom: 1px solid grey;
+}
+
+.all-product-right-top{
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    border-bottom: 1px solid grey;
+}
+
+.all-product-right-top select{
+    height: 30px;
+    width: auto;
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: 1.7rem;
+    margin-left: 10px;
+    outline: none;
+}
+.all-product-content{
+    width: 100%;
+    height: auto !important;
+    display: flex;
+}
+
+.all-product-right{
+    width: calc(100% - 220px);
+    height: 100vh;
+    
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.all-product-right::-webkit-scrollbar{
+    display: none !important;
+}
+.all-product-card{
+    height: clamp(350px,10vw,400px);
+    max-height: 400px;
+    width: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    margin:20px 20px  0 0;
+    position: relative;
+}
+.all-product-card:hover{
+    transform: scale(1.02);
+    transition: all 1s ease-in-out;
+}
+.all-product-card-top{
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
+    padding: 5%;
+    
+}
+.all-product-card-bottom{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    padding: 2% 5%;
+}
+.all-product-brandname{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.all-product-productname{
+    font-size: 1.3rem;
+}
+.all-product-price{
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+.all-product-wislist-icon{
+    font-size: 3.5rem;
+    position: absolute;
+    left: 84%;
+    top: 1%;
+    
+}
+.all-product-wislist-icon:hover{
+    color: red;
+    font-weight: bolder;
+}

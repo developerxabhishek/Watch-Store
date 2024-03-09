@@ -1,0 +1,174 @@
+.footer-container{
+
+    border-top: 1px solid black;
+    height: auto;
+    width: 100%;
+    background-color: rgb(204, 81, 81);
+
+}
+.footer-container-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    flex-wrap: wrap;
+    
+    
+}
+
+/* top of the footer styling */
+
+.footer-container-top p{
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+.footer-social-icon{
+    margin-right: 1vw;
+    padding: 0%;
+}
+.footer-container .footer-container-top.footer-social-icon .icon{
+
+    margin-right: 1vw;
+}
+
+
+
+/* center of the footer 1st child styling */
+
+.footer-center-section{
+
+    display: flex;
+
+    background-color: black;
+    flex-wrap: wrap;
+    
+    }
+
+
+
+/* center of the footer left child styling */
+/* left parent */
+.footer-left-container{
+color: #fff;
+display: flex;
+justify-content: space-around;
+margin-left: 3rem;
+flex-wrap: wrap;
+
+
+}
+.counter{
+    margin-right: 200px;
+    margin-top: 10px;
+}
+.counter h1{
+    font-size: 3rem;
+}
+.counter>*{
+
+    margin-top: 20px;
+    font-size: 2rem;
+
+}
+.footer-container .footer-center-section .footer-left-container-3 .icons{
+
+padding-right: 8px;
+font-size: 2.5rem;
+padding-top: 10px;
+
+
+}
+
+
+.footer-right-container-parent
+{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+.footer-review-box{
+    height: 90px;
+    width: 300px;
+    background: transparent;
+    outline: none;
+    border-bottom: 1px solid wheat;
+}
+.footer-review-box::placeholder{
+
+    color: wheat;
+    font-size: 1.6rem;
+  text-align: center;
+}
+.footer-right-container-parent h1{
+    margin-top: 2.5rem;
+    font-size: 3rem;
+}
+.footer-right-container-parent p{
+    font-size: 2rem;
+}
+
+.footer-btn{
+
+   background-color: #ffffff00; 
+   border: 1px solid #fff;
+   color: orange;
+   border: orange 1px solid ;
+   border-radius: 5px;
+   font-size: 2rem;
+   padding: 10px 120px;
+
+
+}
+
+
+
+/* footer bottom container starts here */
+
+.footer-container-bottom {
+    text-align: center;
+    height: 4rem;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 1rem;
+    font-size: 2rem;
+    
+}
+
+/* lst chamges */
+.footer-left-container h1{
+    color: orange;
+}
+@media (max-width:800px){
+    .footer-social-icon .icon{
+        font-size: 1rem;
+       margin-right: 0px;
+    }
+    .footer-container-top{
+        justify-content: center;
+    }
+    .footer-left-container-1 {
+        width: 100%;
+        
+        margin: 0%;
+        padding: 0%;
+    }
+    .footer-left-container-2 {
+        width: 100%;
+        
+    }
+    .footer-left-container-3 {
+        padding-right: 0px;
+        display: none;
+    }
+    .footer-left-container-3 p{
+        
+    }
+    .footer-right-container{
+        width: 100%;
+        
+        margin-bottom: 2rem;
+    }
+}

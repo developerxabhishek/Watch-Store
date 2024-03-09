@@ -1,0 +1,46 @@
+
+.verify{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+    width: 700px;
+}
+.rightlogo{
+    padding:3vh 4vh 0vh;
+    background-color: rgb(35, 208, 35);
+     border-radius: 50%; 
+     margin: 8vh;
+    color: white;
+    font-size: 70px;
+    font-weight: 900;
+}
+.verify p{
+ font-size: 17px;
+    width: 68%;
+    margin: 4vh auto;
+    text-align: center;
+}
+.note{
+    margin: 2vh;
+}
+.note h2{
+    font-size: 25px;
+}
+@media screen and (max-width: 750px) {
+    .verify{
+        width: 350px;
+    }
+    .verify h1{
+        font-size: 25px;
+    }
+    .verify p{
+        font-size: 17px;
+           width: 80%;
+           margin: 4vh auto;
+           text-align: center;
+       }
+       .note h2{
+        font-size: 22px;
+    }
+}

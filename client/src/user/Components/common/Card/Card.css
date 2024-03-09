@@ -1,0 +1,68 @@
+h1 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+} 
+
+.card {
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    height: 400px;
+    overflow: hidden;
+    width: 300px;
+    margin: 2rem 0 ;
+}
+
+.card > figure {
+    width: 90%;
+    margin: 20px auto 0 auto;
+}
+
+.card > figure > img {
+    width: 100%;
+}
+
+.details {
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 85%;
+    width: 100%;
+    transition: box-shadow .3s ease-in-out,
+                top .3s ease-in-out;
+}
+
+.card:hover .details {
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.3);
+    top: 60%;
+}
+
+.details > .min-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details > .min-details > h1 > span {
+    color: #7B7B7B;
+    display: block;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.cardwishlist{
+  font-size: 25px;
+
+}
+.price{
+  color: red;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.cardbutton{
+  height: 25px;
+  width: 35%;
+  margin-left: 10%;
+
+}

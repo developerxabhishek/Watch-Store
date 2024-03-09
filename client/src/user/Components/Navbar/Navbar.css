@@ -1,0 +1,94 @@
+@import url("../../../index.css");
+.header-container{
+
+    background-color: black;
+    height: 10vh;
+    color: #fff;
+ display: flex;
+ align-items: center;
+   
+}
+
+.search-area{
+    max-height: 35px;
+    width: 0px;
+    position: absolute;
+    top: 13%;
+  
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: .5s ease-in-out;
+}
+.search-area::placeholder{
+    font-size: 1.5rem;
+}
+.search-area-mobile{
+
+    max-height: 35px;
+    width: 90%;
+    position: absolute;
+    top: 12%;
+  
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: .5s ease-in-out;
+
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+.heading-container{
+    margin-left: 5%;
+}
+.link-container{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.popup-container-parent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 5%;
+}
+.sideicon-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 5%;
+}
+
+.link{
+    display: inline;
+    margin: 2rem;
+    font-size: 2rem;
+}
+.icon{
+    
+    font-size: 3rem;
+    margin:1.8rem;
+}
+.header-container .nav-container .heading-container h1{
+
+font-size: 3rem;
+
+}
+
+.hide{
+
+    display: none;
+
+}
+@media screen and (max-width: 1000px){
+    .cart-badge{
+        /* display: none; */
+        
+    }
+}

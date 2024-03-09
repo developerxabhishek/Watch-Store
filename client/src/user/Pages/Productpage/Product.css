@@ -1,0 +1,12 @@
+.product-content::-webkit-scrollbar{
+    display: none;
+}
+.product-sidebar-menu::-webkit-scrollbar{
+display: none;
+}
+@media (max-width:850px) {
+    .product-sider{
+        width: 500px;
+        
+    }
+}

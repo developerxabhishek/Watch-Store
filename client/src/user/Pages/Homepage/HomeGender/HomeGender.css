@@ -1,0 +1,25 @@
+.Home-Gender-container{
+    height: auto;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.Home-Gender-container-1{
+    height: 95%;
+    width: 48%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.gender-info-home{
+    position: absolute;
+    top: 10%;
+}
+@media  (max-width:500px) {
+    .Home-Gender-container-1{
+        width: 100%;
+    } 
+}

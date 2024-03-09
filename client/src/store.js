@@ -8,8 +8,8 @@ import { persistStore, persistReducer } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const persistConfig = {
-  key: "root",
-  storage: AsyncStorage,
+  key: "root",  storage: AsyncStorage,
+
 };
 const persistedCartReducer = persistReducer(persistConfig, cartReducer);
 const persistedWishlist = persistReducer(persistConfig, wishlistReducer);

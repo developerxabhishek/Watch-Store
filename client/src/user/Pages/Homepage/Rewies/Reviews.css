@@ -10,7 +10,7 @@
     align-items: center;
     padding: 16vh 0;
     flex-wrap: wrap;
-  
+      
 }
 .reviews-container-left{
 
@@ -56,6 +56,7 @@ padding: 2rem;
 text-align: center;
 border-radius: 4px;
 box-shadow: 0 0 4px 1px wheat;
+overflow: hidden;
 }
 .reviews-container-right .myreviews h1{
     font-size: 2.5rem;

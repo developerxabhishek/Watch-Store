@@ -70,7 +70,6 @@ const UploadData = async (req, res) => {
     .catch((err) => {
       console.log("Error saving product" + err);
     });
-  //
 };
 
 const displayProduct = (req, res) => {

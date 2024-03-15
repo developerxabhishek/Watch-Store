@@ -3,7 +3,9 @@ import axios from "axios";
 import "./AdminAddProduct.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FileUploader } from "react-drag-drop-files";
+import { FileDrop } from 'react-file-drop'
+
+
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -70,10 +72,12 @@ const AdminAddProduct = () => {
   };
 
   const getBrand = async () => {
-    axios.get("https://watch-store-p4zm.onrender.com/brandDisplay").then((response) => {
-      console.log(response.data);
-      setBrandData(response.data);
-    });
+    axios
+      .get("https://watch-store-p4zm.onrender.com/brandDisplay")
+      .then((response) => {
+        console.log(response.data);
+        setBrandData(response.data);
+      });
   };
   useEffect(() => {
     getBrand();
@@ -268,6 +272,7 @@ const AdminAddProduct = () => {
                 multiple
                 type="file"
               />
+
             </div>
             <div>
               {/* <button className="admin-image-upload-add-button" type="submit">

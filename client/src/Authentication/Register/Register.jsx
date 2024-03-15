@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setUserId } from "../../Slices/userSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [user, setUser] = useState({});
@@ -25,10 +26,29 @@ const Register = () => {
       .then((res) => {
         dispatch(setUserId(res.data._id));
         navigate("/OtpVerification");
+        toast.success("otp has been successfully sent to " + user.email, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
       .catch((err) => {
-        console.log(err.response.data);
-        setUser({});
+        // console.log(err.response.data.error);
+        toast.error(err.response.data.error, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   }
   return (
@@ -53,11 +73,12 @@ const Register = () => {
 
                 <div className="inputBox">
                   <input
-                    type="text"
+                    type="number"
                     name="mobile"
                     value={user.mobile}
                     onChange={handleSubmit}
                     required
+                    id="inputnumber"
                   />{" "}
                   <i>Mobile</i>
                 </div>

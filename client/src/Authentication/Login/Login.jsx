@@ -41,7 +41,17 @@ const Login = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data.error);
+        toast.error(err.response.data.error, {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   };
   // const x = localStorage.getItem("userDetails");
@@ -87,7 +97,7 @@ const Login = () => {
                   />
                 </div>
                 <ul id="loginlist">
-                  <li>Forget Password</li>
+                  {/* <li>Forget Password</li> */}
                   <Link to="/Register">
                     <li>Dont have an Account ? Create one</li>
                   </Link>

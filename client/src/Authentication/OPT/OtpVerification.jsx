@@ -2,6 +2,8 @@ import "./OtpVerification.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+
 import axios from "axios";
 const OtpVerification = () => {
   const [first, setfirst] = useState();
@@ -20,7 +22,19 @@ const OtpVerification = () => {
     axios
       .post("https://watch-store-p4zm.onrender.com/api/user/verify-email", data)
       .then((Response) => {
+        toast.success("OTP verified suceesfully", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         navigate("/Login");
+
+
       })
       .catch((err) => {
         console.log(err);
@@ -32,62 +46,74 @@ const OtpVerification = () => {
       <div className="otp-verification">
         <div className="otp-verification-container">
           <h1>OTP VERIFICATION</h1>
-          <p>An otp has been sent *******ski488@gmail.com</p>
+          <p>An otp has been sent your email</p>
           <h4>Please enter OTP to verify</h4>
           <div className="otp-verification-input">
             <input
-              type="text"
+              type="number"
               name=""
               value={first}
               id=""
               onChange={(e) => {
                 setfirst(e.target.value);
               }}
+              maxLength="1"
+              minLength="1"
             />
             <input
-              type="text"
+              type="number"
               name=""
               value={second}
               id=""
               onChange={(e) => {
                 setsecond(e.target.value);
               }}
+              maxLength="1"
+              minLength="1"
             />
             <input
-              type="text"
+              type="number"
               name=""
               value={third}
               id=""
               onChange={(e) => {
                 setthird(e.target.value);
               }}
+              maxLength="1"
+              minLength="1"
             />
             <input
-              type="text"
+              type="number"
               name=""
               value={fourth}
               id=""
               onChange={(e) => {
                 setfourth(e.target.value);
               }}
+              maxLength="1"
+              minLength="1"
             />
             <input
-              type="text"
+              type="number"
               name=""
               value={fifth}
               id=""
               onChange={(e) => {
                 setfifth(e.target.value);
               }}
+              maxLength="1"
+              minLength="1"
             />
             <input
-              type="text"
+              type="number"
               name=""
               value={sixth}
               id=""
               onChange={(e) => {
                 setsixth(e.target.value);
               }}
+              maxLength="1"
+              minLength="1"
             />
           </div>
           <button onClick={submitotp}>Verify</button>

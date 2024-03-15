@@ -1,7 +1,9 @@
 
 /* login and signup page css */
 /* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); */
-
+#inputnumber{
+  -webkit-appearance: textfield;
+}
 section .signin
 {
 margin:15vh 0px;

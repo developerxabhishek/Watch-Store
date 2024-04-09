@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 const App = () => {
   const userDetails = useSelector((state) => state.userDetailsReducer.value);
 const check=Object.keys(userDetails).length;
-console.log(check)
   const handle = () => {
     if (userDetails.isAdmin === true) {
       return <Admin />;

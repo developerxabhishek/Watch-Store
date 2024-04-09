@@ -6,6 +6,7 @@ import AdminAddProduct from "./AdminAddProduct/AdminAddProduct";
 import AdminOrders from "./AdminOrders/AdminOrders";
 import AdminProfile from "./AdminProfile/AdminProfile";
 import AdminBrand from "./AdminBrand/AdminBrand";
+import AdminUpdateProduct from "./AdminUpdateProduct/AdminUpdateProduct";
 const AdminRoutes = () => {
   return (
     <Routes>
@@ -17,6 +18,7 @@ const AdminRoutes = () => {
       <Route path="/AdminProfile" element={<AdminProfile/>} />
       <Route path="/AdminBrand" element={<AdminBrand/>} />
       <Route path="/AdminOrder" element={<AdminOrders/>} />
+      <Route path="/updateProduct" element={<AdminUpdateProduct/>} />
       </Route>
     </Routes>
   );

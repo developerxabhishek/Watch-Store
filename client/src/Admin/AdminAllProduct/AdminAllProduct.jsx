@@ -2,10 +2,16 @@ import "../AdminTable/Admintable.css";
 import { FaEdit, FaEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
+import {Link} from "react-router-dom"
 import { useState, useEffect } from "react";
+import { updateProduct } from "../../Slices/updateProductSlice";
+import {  useDispatch } from "react-redux";
+
 
 const AdminAllProduct = () => {
   const [data, setData] = useState([]);
+  const myDispatch=useDispatch();
+  
   const getData = async () => {
     await axios
       .get("https://watch-store-p4zm.onrender.com/display")
@@ -29,7 +35,6 @@ const AdminAllProduct = () => {
         getData();
       });
   };
-
   return (
     <>
       <h1 style={{ fontSize: "3rem", padding: " 10px 5%" }}>All Products</h1>
@@ -37,6 +42,7 @@ const AdminAllProduct = () => {
         <thead>
           <tr>
             <th>S/n</th>
+            <th>Image</th>
             <th>Name</th>
             <th>Brand</th>
             <th>Price</th>
@@ -51,13 +57,22 @@ const AdminAllProduct = () => {
             return (
               <tr>
                 <td data-column="S/n">{sno}</td>
+                <td data-column="image">
+                  <img
+                    src={key.images[0]}
+                    alt=""
+                    style={{ height: "80px", width: "80px" }}
+                  />
+                </td>
                 <td data-column="Name">{key.productname}</td>
                 <td data-column="Brand">{key.brand}</td>
                 <td data-column="Price">{key.price}</td>
                 <td data-column="Quantity">{key.quantity}</td>
                 <td data-column="Value">{key.quantity * key.price}</td>
                 <td data-column="Action">
-                  <FaEye /> <FaEdit />{" "}
+                  <Link to="/updateProduct"><FaEdit onClick={()=>{
+                    myDispatch(updateProduct(key))
+                  }} />{" "}</Link>
                   <MdDelete
                     onClick={() => {
                       mydelete(key._id);

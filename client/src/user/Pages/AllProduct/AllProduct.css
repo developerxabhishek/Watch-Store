@@ -106,3 +106,26 @@
     color: red;
     font-weight: bolder;
 }
+#searchboxallproduct{
+    height: 30px;
+    width: 180px;
+    border: none;
+    border-bottom: 0.5px solid black;
+    outline: none;
+    
+}
+#searchboxallproduct::placeholder{
+    margin-left: 20%;
+    font-size: 1.5rem;
+}
+.searchlens{
+    font-size: 25px;
+    position: absolute;
+    right: 10%;
+    cursor: pointer;
+}
+#searchdiv{
+    position: relative;
+
+
+}

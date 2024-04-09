@@ -91,8 +91,23 @@ const deleteProduct = async (req, res) => {
   });
 };
 
+
+const updateProduct=async(req,res)=>{
+const id=req.params.id;
+ProductModel.findByIdAndUpdate(id,req.body).then((data)=>{
+  res.send(200,"Product updated successfully")
+})
+
+}
+
+
+
+
+
+
 module.exports = {
   UploadData,
   displayProduct,
   deleteProduct,
+  updateProduct
 };

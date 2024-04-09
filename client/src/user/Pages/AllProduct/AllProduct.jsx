@@ -11,10 +11,13 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setProductDetails } from "../../../Slices/productDetailsSlice";
 import { addtowishlist } from "../../../Slices/WishlistSlice";
+import { CiSearch } from "react-icons/ci";
 
 const AllProduct = () => {
   const [data, setData] = useState([]);
   const [brandData, setBrandData] = useState([]);
+  const [searchData, setSearchData] = useState("");
+  const [mySearch, setMysearch] = useState([]);
   const ProductDispatch = useDispatch();
   const wishlistDispatch = useDispatch();
 
@@ -50,12 +53,67 @@ const AllProduct = () => {
       addtowishlist({ id: myid, brand, productname, price, image })
     );
   };
+
+  const handleSearch = () => {
+    alert("hello");
+    data.map((data) => {
+      if (data.brand.toLowerCase().includes(searchData.toLowerCase())) {
+        setMysearch(data);
+      }
+    });
+  };
+
+  let datatoDisplay = data.map((key) => (
+    <div className="all-product-card">
+      <Link to="/Productdetail">
+        <div
+          className="all-product-card-top"
+          onClick={() => {
+            ProductDispatch(setProductDetails(key));
+          }}
+        >
+          <img src={key.images[0]} alt="" height="100%" width="100%" />
+        </div>
+      </Link>
+      <div className="all-product-card-bottom">
+        <CiHeart
+          className="all-product-wislist-icon"
+          onClick={() => {
+            addwishlist(
+              key._id,
+              key.brand,
+              key.productname,
+              key.discount,
+              key.images[0]
+            );
+          }}
+        />
+
+        <div className="all-product-brandname">{key.brand}</div>
+        <div className="all-product-productname">{key.productname}</div>
+        <div className="all-product-price">&#8377; {key.discount}</div>
+      </div>
+    </div>
+  ));
+
   return (
     <>
       <div className="all-products">
         <div className="all-product-right-top">
           <p style={{ fontSize: "2rem" }}>Filter</p>
-          <div
+          <div id="searchdiv">
+            <input
+              type="search"
+              name=""
+              id="searchboxallproduct"
+              placeholder="Enter Brand Name"
+              onChange={(e) => {
+                setSearchData(e.target.value);
+              }}
+            />
+            <CiSearch className="searchlens" onClick={handleSearch} />
+          </div>
+          {/* <div
             style={{
               display: "flex",
               alignItems: "center",
@@ -68,7 +126,7 @@ const AllProduct = () => {
               <option value="">Best Selling</option>
               <option value="">Featured</option>
             </select>
-          </div>
+          </div> */}
         </div>
 
         <div className="all-product-content">
@@ -199,52 +257,12 @@ const AllProduct = () => {
               </AccordionDetails>
             </Accordion>
           </div>
-          <div className="all-product-right">
-            {data.map((key) => (
-              <div className="all-product-card">
-                <Link to="/Productdetail">
-                  <div
-                    className="all-product-card-top"
-                    onClick={() => {
-                      ProductDispatch(setProductDetails(key));
-                    }}
-                  >
-                    <img
-                      src={key.images[0]}
-                      alt=""
-                      height="100%"
-                      width="100%"
-                    />
-                  </div>
-                </Link>
-                <div className="all-product-card-bottom">
-                  <CiHeart
-                    className="all-product-wislist-icon"
-                    onClick={() => {
-                      addwishlist(
-                        key._id,
-                        key.brand,
-                        key.productname,
-                        key.discount,
-                        key.images[0]
-                      );
-                    }}
-                  />
-
-                  <div className="all-product-brandname">{key.brand}</div>
-                  <div className="all-product-productname">
-                    {key.productname}
-                  </div>
-                  <div className="all-product-price">
-                    &#8377; {key.discount}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <div className="all-product-right">{datatoDisplay}</div>
         </div>
       </div>
     </>
   );
 };
 export default AllProduct;
+
+// add search  to all products ?

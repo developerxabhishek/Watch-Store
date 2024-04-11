@@ -4,8 +4,8 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 const CheckOut = () => {
   const [input, setInput] = useState({});
-  const [shippingPrice,setshippingPrice]=useState(100)
-const ProductPrice=useSelector((state)=>state.productPrice.value)
+  const [shippingPrice, setshippingPrice] = useState(100);
+  const ProductPrice = useSelector((state) => state.productPrice.value);
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -13,8 +13,6 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
 
     setInput((values) => ({ ...values, [name]: value }));
   };
-
-
 
   function loadScript(src) {
     return new Promise((resolve) => {
@@ -40,7 +38,9 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
       return;
     }
 
-    const result = await axios.post("http://localhost:8000/payment/orders");
+    const result = await axios.post(
+      "https://watch-store-p4zm.onrender.com/payment/orders"
+    );
 
     if (!result) {
       alert("Server error. Are you online?");
@@ -48,7 +48,6 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
     }
 
     const { amount, id: order_id, currency } = result.data;
-
 
     const options = {
       key: "rzp_test_GwBufYdPfx6O35", // Enter the Key ID generated from the Dashboard
@@ -66,9 +65,8 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
           razorpaySignature: response.razorpay_signature,
         };
 
-
         const result = await axios.post(
-          "http://localhost:8000/payment/success",
+          "https://watch-store-p4zm.onrender.com/payment/success",
           data
         );
 
@@ -90,24 +88,6 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <>
@@ -507,16 +487,28 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
                   <th colspan="2">Your order</th>
                 </tr>
                 <tr>
-                  <td style={{width:"200px",textAlign:"center"}}>Product Price</td>
-                  <td style={{width:"200px",textAlign:"center"}}>{ProductPrice}</td>
+                  <td style={{ width: "200px", textAlign: "center" }}>
+                    Product Price
+                  </td>
+                  <td style={{ width: "200px", textAlign: "center" }}>
+                    {ProductPrice}
+                  </td>
                 </tr>
                 <tr>
-                  <td style={{width:"200px",textAlign:"center"}}>Shipping Price</td>
-                  <td style={{width:"200px",textAlign:"center"}}>{shippingPrice}</td>
+                  <td style={{ width: "200px", textAlign: "center" }}>
+                    Shipping Price
+                  </td>
+                  <td style={{ width: "200px", textAlign: "center" }}>
+                    {shippingPrice}
+                  </td>
                 </tr>
-                <tr > 
-                  <td style={{width:"200px",textAlign:"center"}}>Grand Total</td>
-                  <td style={{width:"200px", textAlign:"center"}}>{ProductPrice+shippingPrice}</td>
+                <tr>
+                  <td style={{ width: "200px", textAlign: "center" }}>
+                    Grand Total
+                  </td>
+                  <td style={{ width: "200px", textAlign: "center" }}>
+                    {ProductPrice + shippingPrice}
+                  </td>
                 </tr>
               </table>
             </center>
@@ -543,10 +535,12 @@ const ProductPrice=useSelector((state)=>state.productPrice.value)
                 />
               </span>
             </div> */}
-            <button type="button" onClick={()=>{
-                
-                displayRazorpay()
-            }}>
+            <button
+              type="button"
+              onClick={() => {
+                displayRazorpay();
+              }}
+            >
               Place Order
             </button>
           </div>

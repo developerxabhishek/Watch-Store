@@ -1,8 +1,11 @@
 import "./CheckOut.css";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 const CheckOut = () => {
   const [input, setInput] = useState({});
+  const [shippingPrice,setshippingPrice]=useState(100)
+const ProductPrice=useSelector((state)=>state.productPrice.value)
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -10,18 +13,101 @@ const CheckOut = () => {
 
     setInput((values) => ({ ...values, [name]: value }));
   };
-  console.log(input);
 
-  const handleSubmit = async() => {
-    try{
-        await axios.post("https://watch-store-p4zm.onrender.com/saveUserDetails",input).then((res)=>{
-            console.log(res)
-        })
-    }catch{
-        console.log("error in saving user details")
+
+
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  async function displayRazorpay() {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
     }
-    
-  };
+
+    const result = await axios.post("http://localhost:8000/payment/orders");
+
+    if (!result) {
+      alert("Server error. Are you online?");
+      return;
+    }
+
+    const { amount, id: order_id, currency } = result.data;
+
+
+    const options = {
+      key: "rzp_test_GwBufYdPfx6O35", // Enter the Key ID generated from the Dashboard
+      amount: amount.toString(),
+      currency: currency,
+      name: "WatchStore",
+      description: "Test Transaction",
+      image: {},
+      order_id: order_id,
+      handler: async function (response) {
+        const data = {
+          orderCreationId: order_id,
+          razorpayPaymentId: response.razorpay_payment_id,
+          razorpayOrderId: response.razorpay_order_id,
+          razorpaySignature: response.razorpay_signature,
+        };
+
+
+        const result = await axios.post(
+          "http://localhost:8000/payment/success",
+          data
+        );
+
+        alert(result.data.msg);
+      },
+      prefill: {
+        name: "Manish Malviya",
+        email: "manish@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "Watch store mp nagar ",
+      },
+      theme: {
+        color: "#000000",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <>
@@ -415,37 +501,39 @@ const CheckOut = () => {
             </label>
           </form>
           <div class="Yorder">
-            <table>
-              <tr>
-                <th colspan="2">Your order</th>
-              </tr>
-              <tr>
-                <td>Product Name x 2(Qty)</td>
-                <td>$88.00</td>
-              </tr>
-              <tr>
-                <td>Subtotal</td>
-                <td>$88.00</td>
-              </tr>
-              <tr>
-                <td>Shipping</td>
-                <td>Free shipping</td>
-              </tr>
-            </table>
+            <center>
+              <table style={{ textAlign: "center" }}>
+                <tr>
+                  <th colspan="2">Your order</th>
+                </tr>
+                <tr>
+                  <td style={{width:"200px",textAlign:"center"}}>Product Price</td>
+                  <td style={{width:"200px",textAlign:"center"}}>{ProductPrice}</td>
+                </tr>
+                <tr>
+                  <td style={{width:"200px",textAlign:"center"}}>Shipping Price</td>
+                  <td style={{width:"200px",textAlign:"center"}}>{shippingPrice}</td>
+                </tr>
+                <tr > 
+                  <td style={{width:"200px",textAlign:"center"}}>Grand Total</td>
+                  <td style={{width:"200px", textAlign:"center"}}>{ProductPrice+shippingPrice}</td>
+                </tr>
+              </table>
+            </center>
             <br />
-            <div>
+            {/* <div>
               <input type="radio" name="dbt" value="dbt" checked /> Direct Bank
               Transfer
-            </div>
-            <p>
+            </div> */}
+            <p style={{ fontSize: "15px" }}>
               Make your payment directly into our bank account. Please use your
               Order ID as the payment reference. Your order will not be shipped
               until the funds have cleared in our account.
             </p>
-            <div>
+            {/* <div>
               <input type="radio" name="dbt" value="cd" /> Cash on Delivery
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <input type="radio" name="dbt" value="cd" /> Paypal{" "}
               <span>
                 <img
@@ -454,8 +542,11 @@ const CheckOut = () => {
                   width="50"
                 />
               </span>
-            </div>
-            <button type="button" onClick={handleSubmit}>
+            </div> */}
+            <button type="button" onClick={()=>{
+                
+                displayRazorpay()
+            }}>
               Place Order
             </button>
           </div>

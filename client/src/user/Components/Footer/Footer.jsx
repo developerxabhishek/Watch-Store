@@ -69,7 +69,7 @@ const Footer = () => {
               <p>Privacy Policy</p>
             </div>
             <div className="footer-left-container-3 counter">
-              <h1>Contact</h1>
+              <h1 id="scroll-contact">Contact</h1>
               <p>
                 <MdHomeWork className="icons" /> MP nagar Zone 1 462023{" "}
               </p>

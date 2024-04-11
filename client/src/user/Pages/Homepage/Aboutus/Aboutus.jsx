@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 const Aboutus = () => {
   return (
     <>
-      <div className="home-aboutus-container">
+      <div className="home-aboutus-container" id="scroll-about-us">
         <h1 className="home-aboutus-heading">About Our Website</h1>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing <br />

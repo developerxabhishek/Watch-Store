@@ -10,6 +10,9 @@ mongoose
   .catch((err) => {
     console.log(`Error in connecting ${err}`);
   });
+
+
+
 // mongoose.connect("mongodb://localhost:27017/Watchstore").then(()=>{
 //     console.log("Sucessfully connected  to database");
 // }).catch((err)=>{

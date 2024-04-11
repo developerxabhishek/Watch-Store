@@ -45,23 +45,24 @@ const Wishlist = () => {
   ));
   return (
     <>
+    <center>
       <div className="wishlist-container">
         <h1 style={{ fontSize: "2.5rem", margin: "0 0 5px 5%" }}>Wishlist</h1>
-        <table>
+        <table style={{width:"80%"}}>
           <thead>
             <tr>
-              <th>Thumbnail</th>
-              <th> Name</th>
-              <th>Price</th>
-              <th>
+              <th style={{width:"200px"}}>Thumbnail</th>
+              <th style={{width:"600px"}}> Name</th>
+              <th style={{width:"200px"}}>Price</th>
+              <th style={{width:"200px"}}>
                 Add to cart
               </th>
-              <th>Remove</th>
+              <th style={{width:"200px"}}>Remove</th>
             </tr>
           </thead>
           <tbody>{mydata}</tbody>
         </table>
-      </div>
+      </div></center>
     </>
   );
 };

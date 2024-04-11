@@ -97,5 +97,5 @@ module.exports = {
   UploadData,
   displayProduct,
   deleteProduct,
-  updateProduct
+  
 };

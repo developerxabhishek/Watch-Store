@@ -5,6 +5,7 @@ import cartReducer from "./Slices/cartSlice";
 import wishlistReducer from "./Slices/WishlistSlice";
 import userDetailReducer from "./Slices/userDetailSlice";
 import updateProductSlice from "./Slices/updateProductSlice";
+import productPriceReducer from "./Slices/productPrice";
 import { persistStore, persistReducer } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -23,6 +24,7 @@ const store = configureStore({
     wishlistSlice: persistedWishlist,
     userDetailsReducer: persistedUserDetails,
     updateProductSlice: updateProductSlice,
+    productPrice:productPriceReducer
   },
 });
 export const persistor = persistStore(store);

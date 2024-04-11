@@ -12,6 +12,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { IoIosLogOut } from "react-icons/io";
 import { toast } from "react-toastify";
 import { setUserDetails } from "../../../Slices/userDetailSlice";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 const Navbar = () => {
   const cartData = useSelector((state) => state.cartSlice.cart);
   const match = useMediaQuery("(max-width: 821px)");
@@ -21,11 +23,11 @@ const Navbar = () => {
   // const isLogin = useSelector((state) => state.isloginReducer.value);
 
   const userDetails = useSelector((state) => state.userDetailsReducer.value);
-  const isLogin=Object.keys(userDetails).length;
+  const isLogin = Object.keys(userDetails).length;
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    if (isLogin>0) {
+    if (isLogin > 0) {
       return (
         <IoIosLogOut
           className="icon"
@@ -65,25 +67,45 @@ const Navbar = () => {
           </div>
 
           <div className={match ? "hide" : "link-container"}>
-            {links.map((key) => {
-              return (
-                <li className="link">
-                  {" "}
-                  <Link to={key} style={{ color: "white" }}>
-                    {key}
-                  </Link>{" "}
-                </li>
-              );
-            })}
+            <li className="link">
+              <Link to="/Home" style={{ color: "white" }}>
+                Home
+              </Link>
+            </li>
+            <li className="link">
+              
+                <AnchorLink href="#scroll-contact" style={{ color: "white" }}>
+                  About
+                </AnchorLink>
+              
+            </li>
+            <li className="link">
+              <Link to="/Products" style={{ color: "white" }}>
+                Products
+              </Link>
+            </li>
+            <li className="link">
+              <Link to="/Order" style={{ color: "white" }}>
+                Order
+              </Link>
+            </li>
+
+            <li className="link">
+              <AnchorLink href="#scroll-contact" style={{ color: "white" }}>
+                Contact
+              </AnchorLink>
+            </li>
           </div>
 
           <div className={match ? "hide" : "sideicon-container"}>
-            <IoSearch
-              className="icon"
-              onClick={() => {
-                setShowSearch(!showSearch);
-              }}
-            />
+            <Link to="/Products" style={{ color: "white" }}>
+              <IoSearch
+                className="icon"
+                onClick={() => {
+                  setShowSearch(!showSearch);
+                }}
+              />
+            </Link>
             <Link to="/Wishlist" style={{ color: "white" }}>
               <FaRegHeart className="icon" />
             </Link>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { setProductPrice } from "../../../Slices/productPrice";
 import {
   qtyDecrease,
   qtyIncrease,
@@ -11,7 +12,7 @@ import {
 } from "../../../Slices/cartSlice";
 
 const Cart = () => {
-  let Sum =0;
+  let Sum = 0;
   let shipping = 100;
   const [cartItems, setCartItems] = useState("");
   const cartData = useSelector((state) => state.cartSlice.cart);
@@ -23,6 +24,7 @@ const Cart = () => {
       shipping = 100;
     } else {
       setCartItems("Your Cart is empty");
+      shipping = 0;
     }
   };
   useEffect(() => {
@@ -128,7 +130,14 @@ const Cart = () => {
               <p>Amount to pay </p>
               <p>{Sum + shipping}</p>
             </div>
-            <button className="go-to-checkout"><Link to="/Checkout">Go to Checkout</Link></button>
+            <button
+              className="go-to-checkout"
+              onClick={() => {
+                dispatch(setProductPrice(Sum));
+              }}
+            >
+              <Link to="/Checkout">Go to Checkout</Link>
+            </button>
           </div>
         </div>
       </div>

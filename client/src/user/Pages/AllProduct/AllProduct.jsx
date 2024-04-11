@@ -111,7 +111,7 @@ const AllProduct = () => {
                 setSearchData(e.target.value);
               }}
             />
-            <CiSearch className="searchlens" onClick={handleSearch} />
+            <CiSearch className="searchlens" onClick={handleSearch}  id="scroll-search-bar" />
           </div>
           {/* <div
             style={{

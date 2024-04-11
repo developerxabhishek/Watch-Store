@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import {
   qtyDecrease,
   qtyIncrease,
@@ -127,7 +128,7 @@ const Cart = () => {
               <p>Amount to pay </p>
               <p>{Sum + shipping}</p>
             </div>
-            <button className="go-to-checkout">Go to Checkout</button>
+            <button className="go-to-checkout"><Link to="/Checkout">Go to Checkout</Link></button>
           </div>
         </div>
       </div>

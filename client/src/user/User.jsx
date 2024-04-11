@@ -12,6 +12,7 @@ import Wishlist from "./Pages/Wishlist/Wishlist";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import AllProduct from "./Pages/AllProduct/AllProduct";
 import Admin from "../Admin/Admin";
+import CheckOut from "./Pages/CheckOut/CheckOut";
 const User = () => {
   return (
     <>
@@ -28,6 +29,7 @@ const User = () => {
           <Route path="/OtpVerification" element={<OtpVerification />} />
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/ProfilePage" element={<Login />} />
+          <Route path="/Checkout" element={<CheckOut/>}/>
           <Route path="/*" element={<Errorpage />} />
         </Route>
       </Routes>

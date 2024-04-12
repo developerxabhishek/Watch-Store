@@ -4,52 +4,58 @@ import StarRatings from "react-star-ratings";
 import Slider from "../../../Components/common/Slider";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-const mydata=review.map((key)=>{
-  
-return(
-  
-  <div className="myreviews">
-  <h1 style={{ color: "white" }}>{key.name}</h1>
-  <StarRatings
-    rating={key.star}
-    starDimension="20px"
-    starSpacing="5px"
-    starRatedColor="orange"
-    numberOfStars={5}
-    name="rating"
-  />
-  <p>
-  {key.review}
-  </p>
-</div>
-
-)
-})
+const mydata = review.map((key) => {
+  return (
+    <div className="myreviews">
+      <h1 style={{ color: "white" }}>{key.name}</h1>
+      <StarRatings
+        rating={key.star}
+        starDimension="20px"
+        starSpacing="5px"
+        starRatedColor="orange"
+        numberOfStars={5}
+        name="rating"
+      />
+      <p>{key.review}</p>
+    </div>
+  );
+});
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 5
+    items: 5,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    items: 1,
+  },
 };
 
-
 const Reviews = () => {
+  const [rating, setRating] = useState([]);
 
-
-
+  const display = async () => {
+    await axios
+      .get("https://watch-store-p4zm.onrender.com/ratingdisplay")
+      .then((res) => {
+        console.log(res.data);
+        setRating(res.data);
+      });
+  };
+  useEffect(() => {
+    display();
+  }, []);
 
   return (
     <>
@@ -67,9 +73,44 @@ const Reviews = () => {
         </div>
 
         <div className="reviews-container-right">
-        
-      {mydata}
+          <div className="myreviews">
+            <h1 style={{ color: "white" }}>{rating[0].name}</h1>
+            <StarRatings
+              rating={rating[0].star}
+              starDimension="20px"
+              starSpacing="5px"
+              starRatedColor="orange"
+              numberOfStars={5}
+              name="rating"
+            />
+            <p>{rating[0].review}</p>
+          </div>
 
+          <div className="myreviews">
+            <h1 style={{ color: "white" }}>{rating[1].name}</h1>
+            <StarRatings
+              rating={rating[1].star}
+              starDimension="20px"
+              starSpacing="5px"
+              starRatedColor="orange"
+              numberOfStars={5}
+              name="rating"
+            />
+            <p>{rating[1].review}</p>
+          </div>
+
+          <div className="myreviews">
+            <h1 style={{ color: "white" }}>{rating[2].name}</h1>
+            <StarRatings
+              rating={rating[2].star}
+              starDimension="20px"
+              starSpacing="5px"
+              starRatedColor="orange"
+              numberOfStars={5}
+              name="rating"
+            />
+            <p>{rating[2].review}</p>
+          </div>
         </div>
       </div>
     </>

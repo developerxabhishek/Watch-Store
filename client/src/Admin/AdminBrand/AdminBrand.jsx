@@ -80,10 +80,10 @@ const AdminBrand = () => {
         <table>
           <thead>
             <tr>
-              <th>S/n</th>
-              <th>Brandname</th>
-              <th>Image</th>
-              <th>Delete</th>
+              <th style={{width:"200px"}}>S/n</th>
+              <th style={{width:"300px"}}>Brandname</th>
+              <th style={{width:"300px"}}>Image</th>
+              <th style={{width:"100px"}}>Delete</th>
             </tr>
           </thead>
           <tbody>

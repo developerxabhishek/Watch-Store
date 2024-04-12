@@ -49,8 +49,7 @@ const Reviews = () => {
     await axios
       .get("https://watch-store-p4zm.onrender.com/ratingdisplay")
       .then((res) => {
-        console.log(res.data);
-        setRating(res.data);
+        setRating(res.data.slice(-3));
       });
   };
   useEffect(() => {
@@ -73,44 +72,22 @@ const Reviews = () => {
         </div>
 
         <div className="reviews-container-right">
-          <div className="myreviews">
-            <h1 style={{ color: "white" }}>{rating[0].name}</h1>
-            <StarRatings
-              rating={rating[0].star}
-              starDimension="20px"
-              starSpacing="5px"
-              starRatedColor="orange"
-              numberOfStars={5}
-              name="rating"
-            />
-            <p>{rating[0].review}</p>
-          </div>
-
-          <div className="myreviews">
-            <h1 style={{ color: "white" }}>{rating[1].name}</h1>
-            <StarRatings
-              rating={rating[1].star}
-              starDimension="20px"
-              starSpacing="5px"
-              starRatedColor="orange"
-              numberOfStars={5}
-              name="rating"
-            />
-            <p>{rating[1].review}</p>
-          </div>
-
-          <div className="myreviews">
-            <h1 style={{ color: "white" }}>{rating[2].name}</h1>
-            <StarRatings
-              rating={rating[2].star}
-              starDimension="20px"
-              starSpacing="5px"
-              starRatedColor="orange"
-              numberOfStars={5}
-              name="rating"
-            />
-            <p>{rating[2].review}</p>
-          </div>
+          {rating.map((key, value) => {
+            return (
+              <div className="myreviews">
+                <h1 style={{ color: "white" }}>{key.name}</h1>
+                <StarRatings
+                  rating={key.rating}
+                  starDimension="20px"
+                  starSpacing="5px"
+                  starRatedColor="orange"
+                  numberOfStars={5}
+                  name="rating"
+                />
+                <p>{key.reviews}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

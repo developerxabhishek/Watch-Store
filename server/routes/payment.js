@@ -10,7 +10,7 @@ router.post("/orders", async (req, res) => {
       key_secret: rzp_test_GwBufYdPfx6O35,
     });
     const options = {
-      amount: 1000, // amount in smallest currency unit
+      amount: 10000000, // amount in smallest currency unit
       currency: "INR",
       receipt: "receipt_order_74394",
     };

@@ -38,9 +38,7 @@ const CheckOut = () => {
       return;
     }
 
-    const result = await axios.post(
-      "https://watch-store-p4zm.onrender.com/payment/orders"
-    );
+    const result = await axios.post("http://localhost:5000/payment/orders");
 
     if (!result) {
       alert("Server error. Are you online?");
@@ -66,10 +64,9 @@ const CheckOut = () => {
         };
 
         const result = await axios.post(
-          "https://watch-store-p4zm.onrender.com/payment/success",
+          "http://localhost:5000/payment/success",
           data
         );
-
         alert(result.data.msg);
       },
       prefill: {
